@@ -1,19 +1,20 @@
-/* General Styles */
 *{
     margin: 0;
     padding: 0;
 }
 body {
     font-family: 'Arial', sans-serif;
-    margin: 0;
+    margin-top: 100px;
     padding: 0;
     box-sizing: border-box;
     background-color: #252222;
     color: #cec7c7;
 }
-
-/* Navigation Bar */
-nav{
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
     font-size: 20px;
     font-family: "Lilita One", sans-serif;
     text-align: center;
@@ -21,28 +22,31 @@ nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: rgb(9, 10, 10);
+    background-color: rgba(9, 10, 10, 0.85); /* transparent bg */
     color: rgb(212, 212, 212);
+    backdrop-filter: blur(8px); /* optional glass effect */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* subtle shadow */
 }
-nav ul{
+nav ul {
     list-style: none;
     display: flex;
+    margin: 0;
+    padding: 0;
 }
-nav ul li:hover{
-    cursor: pointer;
-    background-color: #6849ff;
-    height: 50px;
-    width: 100px;
-    transition: 100ms;
-    transform: translateY(-2px)
-}
-nav ul li{
+nav ul li {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 25px;
     border-radius: 5px;
+    height: 50px;
+    width: 110px;
     transition: background-color 0.3s ease, transform 0.2s;
+}
+nav ul li:hover {
+    cursor: pointer;
+    background-color: #6849ff;
+    transform: scale(1.05) translateY(-2px);
 }
 .socialinfo{
     display: flex;
@@ -60,13 +64,32 @@ nav ul li{
     border-radius: 5px;
     background-color: rgb(61, 56, 56);
 }
+.social img {
+    width: 60px;
+    height: 40px;
+    padding: 8px 2px;
+    transition: transform 150ms ease, background-color 150ms ease;
+    transition: 500ms;
+    /* display: block; */
+    margin: 10px 0;
+}
+
+.social img:hover {
+    cursor: pointer;
+    background-color: #6849ff;
+    border-radius: 10px;
+    /* transform: scale(1.2) translateY(-2px); nice scaling effect */
+    transition: transform 150ms ease, background-color 150ms ease;
+
+}
+
 .social a{
     color: white;
     
-}
+/* }
 .social img{
     width: 30px;
-    padding: 8px 2px 8px 2px ;
+    padding: 8px 2px 8px 2px ; */
 }
 .mid{
     text-align: center;
@@ -97,18 +120,18 @@ nav ul li{
     padding-left: 300px;
 }
 .button {
-    margin-top: 30px;
+    margin-top: 100px;
     margin-bottom: 30px;
     text-align: center;
     padding-left: 240px;
 }
 
 .button button {
-    background-color: #7B61FF; 
-    color: rgb(197, 179, 179);
+    background-color: #492cca; 
+    color: rgb(155, 24, 24);
     font-family: "DynaPuff", system-ui;
-    padding: 12px 30px;
-    font-size: 1rem;
+    padding: 25px 80px;
+    font-size: 1.6rem;
     border: none;
     border-radius: 8px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
@@ -116,20 +139,24 @@ nav ul li{
 }
 
 .button button:hover {
-    background-color: #6849ff;
-    transform: translateY(-2px);
+    background-color: #2d1992;
+    
+    transform: translateY(-4px);
 }
 
 .button a {
     text-decoration: none;
-    color: white;
+    color: #f0e2e2;
 }
 .firstsection {
     text-align: center;
-    font-size: 2rem;
+    font-family: "Lilita One", sans-serif;
+    font-size: 3rem;
     font-weight: bold;
     margin-top: 50px;
-    color: white;
+    margin-bottom: 50px;
+    color: #cab9b9;
+    
 }
 
 .intro {
@@ -191,7 +218,8 @@ button.info {
     line-height: 1.4;
     background: none;
     border: none;
-    color: #ccc;
+    /* color: #ccc; */
+    color: rgb(211, 130, 130);
     font-weight: bold;
     font-size: 1rem;
     border-bottom: 2px solid #ffc107;
@@ -200,10 +228,160 @@ button.info {
     cursor: pointer;
     transition: color 0.3s ease;
     text-align: center;
+    border-radius: 8px;
 }
 
 .skillgrid button:hover {
-    color: #fff;
+    color: #252222;
+    background-color: #d4a927;
+    border-radius: 8px;
+    transition: transform 150ms ease, background-color 1000ms ease;
+}
+
+.project_card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.project_card h1{
+    text-align: center;
+    font-family: "Lilita One", sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: #cab9b9;
+}
+
+.cards {
+    width: 100%;
+    display: flex;
+    gap: 40px;
+    display: -webkit-flex;
+    justify-content: center;
+    -webkit-justify-content: center;
+    max-width: 820px;
+    padding-bottom: 80px;
+}
+
+.card--1 .card__img,
+.card--1 .card__img--hover {
+    background-image: url('about-company-2.jpg');
+}
+
+.card--2 .card__img,
+.card--2 .card__img--hover {
+    background-image: url('img01.jpg');
+}
+
+.card--3 .card__img,
+.card--3 .card__img--hover {
+    background-image: url('port.jpg');
+}
+
+.card__img {
+    visibility: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 235px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+
+}
+
+.card__info-hover {
+    position: absolute;
+    padding: 16px;
+    width: 100%;
+    opacity: 0;
+    top: 0;
+}
+
+.card__img--hover {
+    transition: 0.2s all ease-out;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    position: absolute;
+    height: 235px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    top: 0;
+
+}
+
+.card {
+    margin-right: 25px;
+    transition: all .4s cubic-bezier(0.175, 0.885, 0, 1);
+    background-color: #000000;
+    width: 33.3%;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.10, 1.10);
+}
+
+.card__info {
+    z-index: 2;
+    background-color: #000000;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding: 16px 24px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card__category {
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: #ff0000;
+}
+
+.card__title {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-family: 'Roboto Slab', serif;
+    color: #bf8fee;
+}
+
+.card__by {
+    font-size: 12px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+}
+
+.card__author {
+    font-weight: 600;
+    text-decoration: none;
+    color: #ff7f0e;
+    align-items: end;
+}
+
+.card:hover .card__img--hover {
+    height: 100%;
+    opacity: 0.3;
+}
+
+.card:hover .card__info {
+    background-color: transparent;
+    position: relative;
+}
+
+.card:hover .card__info-hover {
+    opacity: 1;
 }
 
 #contact {
@@ -342,3 +520,14 @@ button.info {
 .copyright i {
     color: red;
 }
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-in, transform 0.6s ease-in;
+}
+
+.scroll-animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
