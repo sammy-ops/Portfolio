@@ -250,9 +250,12 @@ button.info {
     font-size: 3rem;
     font-weight: bold;
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
     color: #cab9b9;
 }
+/* .project_card article{
+    width: 1800px;
+} */
 
 .cards {
     width: 100%;
@@ -261,7 +264,7 @@ button.info {
     display: -webkit-flex;
     justify-content: center;
     -webkit-justify-content: center;
-    max-width: 820px;
+    max-width: 1200px;
     padding-bottom: 80px;
 }
 
@@ -278,6 +281,11 @@ button.info {
 .card--3 .card__img,
 .card--3 .card__img--hover {
     background-image: url('port.jpg');
+}
+
+.card--4 .card__img,
+.card--4 .card__img--hover {
+    background-image: url('rock-paper-scissors-neon-icons.jpg');
 }
 
 .card__img {
